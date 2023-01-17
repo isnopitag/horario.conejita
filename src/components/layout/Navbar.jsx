@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaBook, FaBars } from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
+import { GiRabbit } from "react-icons/gi";
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -15,14 +16,14 @@ export const Navbar = ({ title }) => {
     <nav className='navbar mb-12 shadow-lg bg-indigo-700 text-neutral-content'>
       <div className='container mx-auto'>
         <div className='flex-none px-2 mx-2'>
-          <FaBook className='inline pr-2 text-3xl text-white' />
+          <GiRabbit className='inline pr-2 text-3xl text-white' />
           <Link to='/' className='text-lg text-white font-bold align-middle'>
             {title}
           </Link>
         </div>
 
         {/* Navigation Desktop */}
-        <div className='hidden md:block flex-1 px-2 mx-2'>
+        {/* <div className='hidden md:block flex-1 px-2 mx-2'>
           <div className='flex justify-end'>
             {navigation.map((nav) => (
               <Link
@@ -34,14 +35,14 @@ export const Navbar = ({ title }) => {
               </Link>
             ))}
           </div>
-        </div>
+        </div> */}
 
-        <div className='md:hidden mx-auto dropdown dropdown-end'>
+        {/* <div className='md:hidden mx-auto dropdown dropdown-end'>
           <label
             tabIndex='0'
             className='btn btn-square text-white hover:text-white hover:bg-gray-700  '
           >
-            <FaBars className='block  h-6 w-6' aria-hidden='true' />
+            <GiRabbit className='block  h-6 w-6' aria-hidden='true' />
           </label>
 
           <ul
@@ -56,14 +57,14 @@ export const Navbar = ({ title }) => {
               ))}
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
 };
 
 Navbar.defaultProps = {
-  title: 'Be4writing (Ramiel React)',
+  title: 'Horario de la conejinga',
 };
 Navbar.prototype = {
   title: PropTypes.string,

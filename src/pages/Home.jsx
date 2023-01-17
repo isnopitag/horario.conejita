@@ -7,14 +7,14 @@ export const Home = () => {
   return (
     <div>
       <Cover />
-      <h3 className='bg-clip-text text-5xl text-center text-gray-50  my-4'>
+      {/* <h3 className='bg-clip-text text-5xl text-center text-gray-50  my-4'>
         ¡Nuestras principales caracteristicas!
-      </h3>
-      <FeatureCards />
-      <h4 className='bg-clip-text text-4xl text-center text-gray-50  my-4'>
+      </h3> */}
+      {/* <FeatureCards /> */}
+      {/* <h4 className='bg-clip-text text-4xl text-center text-gray-50  my-4'>
         ¡Conoce aun más!
-      </h4>
-      <FeautureTable />
+      </h4> */}
+      {/* <FeautureTable /> */}
     </div>
   );
 };
