@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/horario.conejita/static/css/main.ed64a814.css",
-    "main.js": "/horario.conejita/static/js/main.8fdd422f.js",
+    "main.js": "/horario.conejita/static/js/main.b55d1642.js",
     "static/media/spinner.gif": "/horario.conejita/static/media/spinner.e2ffacc949faa6aeba7c.gif",
     "index.html": "/horario.conejita/index.html",
     "main.ed64a814.css.map": "/horario.conejita/static/css/main.ed64a814.css.map",
-    "main.8fdd422f.js.map": "/horario.conejita/static/js/main.8fdd422f.js.map"
+    "main.b55d1642.js.map": "/horario.conejita/static/js/main.b55d1642.js.map"
   },
   "entrypoints": [
     "static/css/main.ed64a814.css",
-    "static/js/main.8fdd422f.js"
+    "static/js/main.b55d1642.js"
   ]
 }
