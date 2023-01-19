@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment/moment';
 import DatePicker from "react-datepicker";
+import { WiSunrise, WiSolarEclipse, WiMoonAltWaningCrescent5, WiNa} from "react-icons/wi";
+import { AiFillExperiment } from "react-icons/ai";
+import { FiPackage } from "react-icons/fi";
+import { FcBiomass } from "react-icons/fc";
+
 import "react-datepicker/dist/react-datepicker.css";
 import 'moment/locale/es';
 moment.locale('es');
@@ -64,7 +69,7 @@ const schedules = [
   {
       "id":"7",
       "shift": "1",
-      "activity": "preparacion",
+      "activity": "Preparación",
       "colleagues": "S-Aracelli A ME-Aracelli V",
       "start": "2023-04-10",
       "finish": "2023-04-23"
@@ -88,7 +93,7 @@ const schedules = [
   {
       "id":"10",
       "shift": "1",
-      "activity": "Preparacion",
+      "activity": "Preparación",
       "colleagues": "S-Aracelli A ME-Leydi",
       "start": "2023-05-22",
       "finish": "2023-06-04"
@@ -112,7 +117,7 @@ const schedules = [
   {
       "id":"13",
       "shift": "1",
-      "activity": "Preparacion",
+      "activity": "Preparación",
       "colleagues": "S-Leydi ME-Johana",
       "start": "2023-07-03",
       "finish": "2023-07-16"
@@ -120,7 +125,7 @@ const schedules = [
   {
       "id":"14",
       "shift": "2",
-      "activity": "Material de empaque",
+      "activity": "Material de Empaque",
       "colleagues": "P-Aracelli A S-Aracelli V",
       "start": "2023-07-17",
       "finish": "2023-07-30"
@@ -128,7 +133,7 @@ const schedules = [
   {
       "id":"15",
       "shift": "1",
-      "activity": "Preparacion",
+      "activity": "Preparación",
       "colleagues": "S-Aracelli A ME-Araceli V",
       "start": "2023-07-31",
       "finish": "2023-08-13"
@@ -144,7 +149,7 @@ const schedules = [
   {
       "id":"17",
       "shift": "2",
-      "activity": "Preparacion",
+      "activity": "Preparación",
       "colleagues": "ME-Rafa S-Araceli A",
       "start": "2023-08-28",
       "finish": "2023-09-10"
@@ -176,7 +181,7 @@ const schedules = [
   {
       "id":"21",
       "shift": "1",
-      "activity": "Preparacion",
+      "activity": "Preparación",
       "colleagues": "S-Rafa ME-Gerardo",
       "start": "2023-10-23",
       "finish": "2023-11-05"
@@ -208,7 +213,7 @@ const schedules = [
   {
       "id":"25",
       "shift": "2",
-      "activity": "Preparacion",
+      "activity": "Preparación",
       "colleagues": "ME-Areceli A S-RAFA",
       "start": "2023-12-18",
       "finish": "2023-12-31"
@@ -279,35 +284,84 @@ export const Cover = () => {
   const [date, setDate] = useState(sysDate);
   const [startDate, setStartDate] = useState(new Date());
   const [info, setInfo] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
 
   // console.log("De mañana", schedules.filter(s => s.shift === '1').length)
   // console.log("De tarde", schedules.filter(s => s.shift === '2').length)
   // console.log("De noche", schedules.filter(s => s.shift === '3').length)
   useEffect(() => {
     setInfo(getShiftObject(sysDate))
-    
   }, []);
 
-  const handleCalendarClose = () => {
-    console.log('Close', moment(startDate).format("YYYY-MM-DD"))
-    
-    setInfo(getShiftObject(moment(startDate).format("YYYY-MM-DD")))
+  // const handleCalendarClose = () => {    
+  //   setInfo(getShiftObject(moment(startDate).format("YYYY-MM-DD")))
+  // }
+
+  const handleChange = (date) => {
+    setIsOpen(!isOpen);
+    if(date === null){
+      setInfo(undefined)
+      setStartDate(new Date())
+    }
+    setStartDate(date)
+    setInfo(getShiftObject(moment(date).format("YYYY-MM-DD")))
+  }
+  
+  const getPrettyDate = (date) => {
+    return moment(date).format('LL')
   }
 
+  const getIconForShift = (shift) => {
+    switch (shift){
+      case "1":
+        return <WiSunrise className='inline pr-2 text-5xl text-white' />
+      case "2":
+        return <WiSolarEclipse className='inline pr-2 text-5xl text-white' />
+      case "3":
+        return <WiMoonAltWaningCrescent5 className='inline pr-2 text-5xl text-white' />
+      default:
+      return <WiNa className='inline pr-2 text-5xl text-white' />
+    }
+  }
+
+  const getIconForActivity = (activity) => {
+    switch (activity){
+      case "Siembra":
+        return <AiFillExperiment className='inline pr-2 text-5xl text-white' />
+      case "Preparación":
+        return <FcBiomass className='inline pr-2 text-5xl text-white' />
+      case "Material de Empaque":
+        return <FiPackage className='inline pr-2 text-5xl text-white' />
+      default:
+      return <WiNa className='inline pr-2 text-5xl text-white' />
+    }
+  }
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <div>
-      <div>
-        <div className='hero-content text-center text-neutral-content'>
-          <div className='max-wh-md'>
+    <div className='hero'>
+      <div className='text-center hero-content'>
+        <div className='max-w-lg'>
             {info === undefined ? <h1 className='mb-5 text-5xl font-bold'>No hay datos para esa fecha</h1>:  
             <div>
               <h1 className='mb-5 text-5xl font-bold'>
-                El {moment(startDate).format('LL')} el turno es de {getShiftPretty(info.shift)}
+                Para {getPrettyDate(startDate)} el turno es de {getShiftPretty(info.shift)} {getIconForShift(info.shift)}
               </h1>
-              <h2 className='mb-5 text-4xl font-bold'>
-                La actividad es {info.activity}
+              <h2 className='mb-5 text-4xl'>
+                La actividad es <span className='font-bold'>{info.activity}</span> {getIconForActivity(info.activity)}
               </h2>
-              <h3 className='mb-5 text-3xl font-bold'>
+              <h1 className='mb-5 text-4xl'>
+                Empieza del {getPrettyDate(info.start)}  
+              </h1>
+              <h1 className='mb-5 text-4xl'>
+                hasta {getPrettyDate(info.finish)}
+              </h1>
+              
+              <h3 className='mb-5 text-3xl'>
                 Los compañeros son {info.colleagues}
               </h3>
             </div>
@@ -316,15 +370,23 @@ export const Cover = () => {
             <div className='mb-5 text-2xl font-bold'>
               Consultar otra fecha:
             </div>
-            <DatePicker className='btn btn-primary mx-4 my-2'
+            {/* <DatePicker className='btn btn-primary mx-4 my-2'
              selected={startDate}
-             onChange={(date) => setStartDate(date)}
+             onChange={(date) => handleOnChange(date)}
              onCalendarClose={handleCalendarClose}
-              />
+             disabledKeyboardNavigation
+             placeholderText="This has disabled keyboard navigation"
+              /> */}
+              <button className='btn btn-primary mx-4 my-2' onClick={handleClick}>
+                {/* {format(startDate, "dd-MM-yyyy")} */}
+                { getPrettyDate(startDate)}
+              </button>
+              {isOpen && (
+                <DatePicker selected={startDate} onChange={handleChange} inline />
+              )}
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 };
