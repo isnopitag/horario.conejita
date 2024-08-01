@@ -1,12 +1,15 @@
 import React from 'react';
-import { GiRabbit } from "react-icons/gi";
+import bunnyGif from './assets/bunny.gif'; // Importa el archivo GIF
 export const Footer = () => {
   const footerYear = new Date().getFullYear();
   return (
     <footer className='footer p-10 bg-gray-700 text-primary-content footer-center'>
       <div>
-        <GiRabbit className='inline pr-2 text-3xl text-white' />
-        <p>Horario de la conejesinga para: {footerYear} All Rights Reserved</p>
+        <img src={bunnyGif} alt='Rabbit' className='inline pr-2 h-8' />
+        <p className='text-white'>
+          Horario de la conejesinga hecho con ❤️, {footerYear} All Rights
+          Reserved
+        </p>
       </div>
     </footer>
   );
