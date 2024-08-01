@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/horario.conejita/static/css/main.d4b24b06.css",
-    "main.js": "/horario.conejita/static/js/main.9195619c.js",
-    "static/media/spinner.gif": "/horario.conejita/static/media/spinner.e2ffacc949faa6aeba7c.gif",
+    "main.css": "/horario.conejita/static/css/main.d494f5f8.css",
+    "main.js": "/horario.conejita/static/js/main.be0ca1c0.js",
+    "static/media/bunny.gif": "/horario.conejita/static/media/bunny.a437ea1f0846dd3eaf35.gif",
     "index.html": "/horario.conejita/index.html",
-    "main.d4b24b06.css.map": "/horario.conejita/static/css/main.d4b24b06.css.map",
-    "main.9195619c.js.map": "/horario.conejita/static/js/main.9195619c.js.map"
+    "main.d494f5f8.css.map": "/horario.conejita/static/css/main.d494f5f8.css.map",
+    "main.be0ca1c0.js.map": "/horario.conejita/static/js/main.be0ca1c0.js.map"
   },
   "entrypoints": [
-    "static/css/main.d4b24b06.css",
-    "static/js/main.9195619c.js"
+    "static/css/main.d494f5f8.css",
+    "static/js/main.be0ca1c0.js"
   ]
 }
