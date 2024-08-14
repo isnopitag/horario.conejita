@@ -31,3 +31,9 @@ Your app is ready to be deployed!
 ### `npm run deploy`
 
 This will create another branch in your repo to deploy on gh pages, configuration and setup on your site is required.
+
+Add this to the `package.json` for GH pages, was deleted in order to create docker images.
+
+```
+"homepage": "https://isnopitag.github.io/horario.conejita",
+```
