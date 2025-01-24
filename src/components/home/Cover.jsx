@@ -13,7 +13,7 @@ import { FcBiomass } from 'react-icons/fc';
 
 import 'react-datepicker/dist/react-datepicker.css';
 import 'moment/locale/es';
-import schedules from './schedules24.json';
+import schedules from './schedules25.json';
 moment.locale('es');
 
 function getIsSame(date, start, finish) {
@@ -162,25 +162,37 @@ export const Cover = () => {
             </h1>
           ) : (
             <div>
-              <h1 className='mb-5 text-5xl font-bold'>
-                Para {getPrettyDate(startDate)} el turno es de{' '}
+              <h2 className='mb-5 text-3xl font-bold'>
+                <span className='font-bold'>Fecha:</span>{' '}
+                {getPrettyDate(sysDate)}
+              </h2>
+              <h2 className='mb-5 text-2xl'>
+                Del: {getPrettyDate(info.start)}
+              </h2>
+              <h2 className='mb-5 text-2xl'>
+                Hasta: {getPrettyDate(info.finish)}
+              </h2>
+              <h2 className='mb-5 text-3xl'>
+                <span className='font-bold'>Turno: </span>{' '}
                 {getShiftPretty(info.shift)} {getIconForShift(info.shift)}
-              </h1>
-              <h2 className='mb-5 text-4xl'>
-                La actividad es{' '}
-                <span className='font-bold'>{info.activity}</span>{' '}
+              </h2>
+              <h2 className='mb-5 text-3xl'>
+                <span className='font-bold'>Actividad: </span> {info.activity}{' '}
                 {getIconForActivity(info.activity)}
               </h2>
-              <h1 className='mb-5 text-4xl'>
-                Empieza del {getPrettyDate(info.start)}
-              </h1>
-              <h1 className='mb-5 text-4xl'>
-                hasta {getPrettyDate(info.finish)}
-              </h1>
 
               <h3 className='mb-5 text-3xl'>
-                Los compañeros son {info.colleagues}
+                <span className='font-bold'>Compañeros:</span>
               </h3>
+              {info?.colleagues !== undefined ? (
+                info?.colleagues.map((colleague, index) => (
+                  <h3 key={index} className='mb-5 text-2xl'>
+                    {colleague.activity} - {colleague.name}
+                  </h3>
+                ))
+              ) : (
+                <span>Error Loading Colleagues!</span>
+              )}
             </div>
           )}
           <div>
