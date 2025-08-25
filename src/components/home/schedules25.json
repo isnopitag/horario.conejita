@@ -281,5 +281,74 @@
     ],
     "start": "2025-09-08",
     "finish": "2025-09-21"
+  },
+  {
+    "id": "20",
+    "shift": "3",
+    "activity": "Siembra",
+    "colleagues": [
+      {
+        "name": "Araceli A.",
+        "activity": "Material de Empaque"
+      }
+    ],
+    "start": "2025-09-22",
+    "finish": "2025-10-05"
+  },
+  {
+    "id": "21",
+    "shift": "2",
+    "activity": "Material de Empaque",
+    "colleagues": [
+      {
+        "name": "Araceli A.",
+        "activity": "Siembra"
+      }
+    ],
+    "start": "2025-10-06",
+    "finish": "2025-10-19"
+  },
+  {
+    "id": "22",
+    "shift": "1",
+    "activity": "Siembra",
+    "colleagues": [
+      {
+        "name": "Araceli A.",
+        "activity": "Prepraración"
+      },
+      {
+        "name": "Liz",
+        "activity": "Material de Empaque"
+      }
+    ],
+    "start": "2025-10-10",
+    "finish": "2025-11-02"
+  },
+  {
+    "id": "23",
+    "shift": "3",
+    "activity": "Material de Empaque",
+    "colleagues": [
+      {
+        "name": "Liz",
+        "activity": "Siembra"
+      }
+    ],
+    "start": "2025-10-03",
+    "finish": "2025-11-16"
+  },
+  {
+    "id": "24",
+    "shift": "2",
+    "activity": "Siembra",
+    "colleagues": [
+      {
+        "name": "Liz",
+        "activity": "Material de Empaque"
+      }
+    ],
+    "start": "2025-11-17",
+    "finish": "2025-12-30"
   }
 ]
